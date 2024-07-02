@@ -33,7 +33,9 @@ function generateBlocks() {
                 alert('Cannot divide by zero');
                 return;
             }
+            // if one number is negative and the other is positive, the result is negative, so we have to ceil to round properly
             if (parseInt(numberInput1) < 0 && parseInt(numberInput2) > 0) value = Math.ceil(parseInt(numberInput1) / parseInt(numberInput2));
+            else if (parseInt(numberInput1) > 0 && parseInt(numberInput2) < 0) value = Math.ceil(parseInt(numberInput1) / parseInt(numberInput2));
             else value = Math.floor(parseInt(numberInput1) / parseInt(numberInput2));
             document.getElementById('functionImage').src = 'assets/division.svg'
             remainder = parseInt(numberInput1) % parseInt(numberInput2);
