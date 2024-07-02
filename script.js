@@ -29,7 +29,12 @@ function generateBlocks() {
             document.getElementById('functionImage').src = 'assets/multiply.svg'
             break;
         case 'divide':
-            value = Math.floor(parseFloat(numberInput1) / parseInt(numberInput2));
+            if (parseInt(numberInput2) == 0) {
+                alert('Cannot divide by zero');
+                return;
+            }
+            if (parseInt(numberInput1) < 0 && parseInt(numberInput2) > 0) value = Math.ceil(parseInt(numberInput1) / parseInt(numberInput2));
+            else value = Math.floor(parseInt(numberInput1) / parseInt(numberInput2));
             document.getElementById('functionImage').src = 'assets/division.svg'
             remainder = parseInt(numberInput1) % parseInt(numberInput2);
 
@@ -65,38 +70,72 @@ function generateBlocks() {
     blocksContainer1.appendChild(number1Key);
 
     // Generate new blocks
-    for (let i = 0; i < numberInput1; i++) {
-        const block = document.createElement('div');
-        block.className = 'block1';
-        block.innerHTML = i + 1;
-        blocksContainer1.appendChild(block);
+    if (numberInput1 < 0) {
+        for (let i = numberInput1; i < 0; i++) {
+            const block = document.createElement('div');
+            block.className = 'block1';
+            block.innerHTML = i;
+            blocksContainer1.appendChild(block);
+        }
+
     }
+    else {
+        for (let i = 0; i < numberInput1; i++) {
+            const block = document.createElement('div');
+            block.className = 'block1';
+            block.innerHTML = i + 1;
+            blocksContainer1.appendChild(block);
+        }
+    }
+    
 
     const number2Key = document.createElement('div');
     number2Key.className = 'blockKey';
     number2Key.innerHTML = 'Number 2:'; 
     blocksContainer2.appendChild(number2Key);
 
-    for (let i = 0; i < numberInput2; i++) {
-        const block = document.createElement('div');
-        block.className = 'block2';
-        block.innerHTML = i + 1;
-        blocksContainer2.appendChild(block);
+    if (numberInput2 < 0) {
+        for (let i = numberInput2; i < 0; i++) {
+            const block = document.createElement('div');
+            block.className = 'block2';
+            block.innerHTML = i;
+            blocksContainer2.appendChild(block);
+        }
+
+    }
+    else {
+        for (let i = 0; i < numberInput2; i++) {
+            const block = document.createElement('div');
+            block.className = 'block2';
+            block.innerHTML = i + 1;
+            blocksContainer2.appendChild(block);
+        }
     }
 
     
 
-    if (remainder > 0) {
+    if (remainder != 0) {
         const remainderKey = document.createElement('div');
         remainderKey.className = 'blockKey';
         remainderKey.innerHTML = 'Remainder: '; 
         blocksContainerRemainder.appendChild(remainderKey);
-        for (let i = 0; i < remainder; i++) {
+        if (remainder < 0) {
+            for (let i = remainder; i < 0; i++) {
+                const block = document.createElement('div');
+                block.className = 'blockRemainder';
+                block.innerHTML = i;
+                blocksContainerRemainder.appendChild(block);
+            }
+        }
+        else {
+            for (let i = 0; i < remainder; i++) {
             const block = document.createElement('div');
             block.className = 'blockRemainder';
             block.innerHTML = i + 1;
             blocksContainerRemainder.appendChild(block);
         }
+        }
+        
         
     }
 
@@ -113,15 +152,17 @@ function generateBlocks() {
             blocksContainerFinal.appendChild(block);  
         }
     }
-    
-    
-
-    for (let i = value; i < remainder+value; i++) {
+    else {
+        for (let i = value; i < 0; i++) {
             const block = document.createElement('div');
-            block.className = 'blockRemainder';
-            block.innerHTML = i + 1;
-            blocksContainerFinal.appendChild(block);
+            block.className = 'blockFinal';
+            block.innerHTML = i;
+            blocksContainerFinal.appendChild(block);  
+        }
     }
+    
+    
+    
 
     
 }
