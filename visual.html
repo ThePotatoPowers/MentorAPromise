@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor-A-Promise</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><img src="assets/logo.png" alt="mentor logo"></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="visual.html">Visual Math</a></li>
+        </ul>
+    </nav>
+    <div class="visual">
+        <h1><u>Block Generator</u></h1>
+
+
+
+        <h1>Number 1</h1>
+        <input type="number1" id="numberInput1" placeholder="Enter a number">
+        <h1>Number 2</h1>
+        <input type="number2" id="numberInput2" placeholder="Enter a number">
+        <h1>Function</h1>
+        <select id="functionSelect">
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+        </select>
+        <br>
+        <br>
+        <button onclick="generateBlocks()">Generate Blocks</button>
+        
+        <div id="blocksContainer1"></div>
+
+        <img id="functionImage">
+
+        <div id="blocksContainer2"></div>
+
+        
+
+     
+        <img id="equalImage">
+
+        <div id="blocksContainerFinal"></div>
+        <div id="blocksContainerRemainder"></div>
+
+
+
+    </div>
+    
+</body>
+</html>
