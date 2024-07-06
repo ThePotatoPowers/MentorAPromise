@@ -5,77 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drag and Drop Example</title>
-    <style>
-        #divA,
-        #divB {
-            width: 200px;
-            height: 200px;
-            border: 1px solid black;
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .draggable {
-            width: 50px;
-            height: 50px;
-            margin: 5px;
-            background-color: lightblue;
-            text-align: center;
-            line-height: 50px;
-            cursor: pointer;
-        }
-    </style>
+    <link href="styles.css" rel="stylesheet">
+    <script src="draggable.js" defer></script>
 </head>
 
 <body>
-    <div id="divA">
-        <div class="draggable" draggable="true">1</div>
-        <div class="draggable" draggable="true">2</div>
-        <div class="draggable" draggable="true">3</div>
-        <div class="draggable" draggable="true">4</div>
-        <div class="draggable" draggable="true">5</div>
+    <nav class="navbar">
+        <div class="logo"><img src="assets/logo.png" alt="mentor logo"></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="visual.html">Visual Math</a></li>
+            <li><a href="draggable.html">Counting</a></li>
+        </ul>
+    </nav>
+
+
+
+    <div class="counting">
+        <center>
+            <h1 id="countTitle">Counting Drag</h1>
+
+            <div id="divA">
+                <div class="block1" draggable="true"></div>
+                <div class="block1" draggable="true"></div>
+                <div class="block1" draggable="true"></div>
+                <div class="block1" draggable="true"></div>
+                <div class="block1" draggable="true"></div>
+
+            </div>
+            <div id="divB"></div>
+            <p>Count in Div B: <span id="countB">0</span></p>
+
+        </center>
+
     </div>
-    <div id="divB"></div>
-    <p>Count in Div B: <span id="countB">0</span></p>
-
-    <script>
-        const divA = document.getElementById('divA');
-        const divB = document.getElementById('divB');
-        const countB = document.getElementById('countB');
-
-        divA.addEventListener('dragstart', (e) => {
-            e.dataTransfer.setData('text/plain', e.target.id);
-        });
-
-        [divA, divB].forEach(div => {
-            div.addEventListener('dragover', (e) => {
-                e.preventDefault();
-            });
-
-            div.addEventListener('drop', (e) => {
-                e.preventDefault();
-                const draggable = document.querySelector('.draggable.dragging');
-                if (draggable && e.target !== draggable) {
-                    e.target.appendChild(draggable);
-                    updateCount();
-                }
-            });
-        });
-
-        document.querySelectorAll('.draggable').forEach(item => {
-            item.addEventListener('dragstart', () => {
-                item.classList.add('dragging');
-            });
-
-            item.addEventListener('dragend', () => {
-                item.classList.remove('dragging');
-            });
-        });
-
-        function updateCount() {
-            countB.textContent = divB.children.length;
-        }
-    </script>
 </body>
 
 </html>

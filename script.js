@@ -75,6 +75,7 @@ function generateBlocks() {
     if (numberInput1 < 0) {
         for (let i = numberInput1; i < 0; i++) {
             const block = document.createElement('div');
+            block.setAttribute('draggable', true);
             block.className = 'block1';
             block.innerHTML = i;
             blocksContainer1.appendChild(block);
@@ -84,6 +85,7 @@ function generateBlocks() {
     else {
         for (let i = 0; i < numberInput1; i++) {
             const block = document.createElement('div');
+            block.setAttribute('draggable', true);
             block.className = 'block1';
             block.innerHTML = i + 1;
             blocksContainer1.appendChild(block);
@@ -99,6 +101,7 @@ function generateBlocks() {
     if (numberInput2 < 0) {
         for (let i = numberInput2; i < 0; i++) {
             const block = document.createElement('div');
+            block.setAttribute('draggable', true);
             block.className = 'block2';
             block.innerHTML = i;
             blocksContainer2.appendChild(block);
@@ -108,6 +111,7 @@ function generateBlocks() {
     else {
         for (let i = 0; i < numberInput2; i++) {
             const block = document.createElement('div');
+            block.setAttribute('draggable', true);
             block.className = 'block2';
             block.innerHTML = i + 1;
             blocksContainer2.appendChild(block);
@@ -124,6 +128,7 @@ function generateBlocks() {
         if (remainder < 0) {
             for (let i = remainder; i < 0; i++) {
                 const block = document.createElement('div');
+                block.setAttribute('draggable', true);
                 block.className = 'blockRemainder';
                 block.innerHTML = i;
                 blocksContainerRemainder.appendChild(block);
@@ -132,6 +137,7 @@ function generateBlocks() {
         else {
             for (let i = 0; i < remainder; i++) {
             const block = document.createElement('div');
+            block.setAttribute('draggable', true);
             block.className = 'blockRemainder';
             block.innerHTML = i + 1;
             blocksContainerRemainder.appendChild(block);
@@ -149,6 +155,7 @@ function generateBlocks() {
     if (value >= 0) {
         for (let i = 0; i < value; i++) {
             const block = document.createElement('div');
+            block.setAttribute('draggable', true);
             block.className = 'blockFinal';
             block.innerHTML = i + 1;
             blocksContainerFinal.appendChild(block);  
@@ -157,6 +164,7 @@ function generateBlocks() {
     else {
         for (let i = value; i < 0; i++) {
             const block = document.createElement('div');
+            block.setAttribute('draggable', true);
             block.className = 'blockFinal';
             block.innerHTML = i;
             blocksContainerFinal.appendChild(block);  
