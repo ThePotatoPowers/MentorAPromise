@@ -48,6 +48,11 @@ divA.addEventListener('dragstart', (e) => {
 });
 
 document.querySelectorAll('.block1').forEach(item => {
+    // generate random color
+    const listOfColors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'brown', 'black'];
+    const randomColor = listOfColors[Math.floor(Math.random() * listOfColors.length)];
+    //item.style.backgroundColor = randomColor;
+
     item.addEventListener('dragstart', () => {
         item.classList.add('dragging');
     });
@@ -59,5 +64,14 @@ document.querySelectorAll('.block1').forEach(item => {
 
 function updateCount() {
     countB.textContent = divB.children.length;
+    if (divB.children.length === 3) {
+        document.getElementById('check').src = 'assets/check.svg';
+    }
+    else {
+        document.getElementById('check').src = 'assets/incorrect.svg';
+    }
+
     return countB.textContent;
+    
+
 }
